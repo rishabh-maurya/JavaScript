@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Methods and this keyword</title>
+    <script>
+        /*
+            Methods inside object-
+
+            let ram = {
+                name: 'Ram', 
+                batch: 10,
+                likesReadingBooks: true,
+                sayHi: (name) => {
+                    console.log('Hi' + ' ' + name);
+                }
+            }
+            ram.sayHi('Ram');
+        */
+
+        /*
+            'this' keyword- 
+            - 'this' is the keyword of javascript.
+            Note- Inside arrow function this keyword isn't working,
+                  because arrow function are not hoisted.
+
+            - this in global scope refers to your window object, 
+              any property/method of window object can be accessed directly.
+            - windows refers to BOM(Browser Object Model).
+              console.log(this);
+
+            - never try to access object name inside object to
+              accessing properties, instead of this we will
+              use 'this' keyword.
+        */
+
+        let ram = {
+            name: 'Ram',
+            batch: 10,
+            likesReadingBooks: true,
+            sayHi: (name) => {
+                console.log('Hi' + ' ' + name);
+            },
+            sayBatchNo: function() {
+                console.log("I'm from batch " + this.batch);
+            },
+            sayIntroduction: function() {
+                console.log('Hi, my name is ' + this.name + ' I am from ' + this.batch + (this.likesReadingBooks?' I like reading books':' I do not like reading books'))
+            }
+        }
+        ram.sayHi('Ram');
+        ram.sayBatchNo();
+        console.log(ram.batch)
+        ram.sayIntroduction();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

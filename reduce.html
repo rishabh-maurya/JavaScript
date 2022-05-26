@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reduce Method</title>
+    <script>
+        /*
+            reduce - Calculate and return a single computed value from an array.
+            - Loop through each element of the array
+            - Returns the overall computed value after calculation made in each iteration
+
+            let ans = arr.reduce((accumulator, element) => {
+                // code
+                return xyz;
+            }, defaultValue);
+        */
+
+        let arr = [1, 2, 3, 4, 5];
+        let sum = arr.reduce((accumulator, element) => {
+            return accumulator + element;
+        }, 0);
+        console.log(sum);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

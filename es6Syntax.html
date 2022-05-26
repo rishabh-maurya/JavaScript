@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es6 Syntax</title>
+    <script>
+        /*
+            1. Template Strings
+            Note - using \n we will write inside next line.
+
+            let anju = {
+                firstName: 'Anju',
+                lastName: 'XYZ',
+                age: 22,
+                likesSinging: false
+            }
+            console.log(`${anju.firstName} ${anju.lastName} is ${anju.age} years old and he/she ${anju.likeSinging ? 'likes' : 'does not like'} singing`)
+        */
+
+        /*
+            2. let, const
+            let - scope
+            const - scope + constant value
+        */
+
+        /*
+            3. Arrow Function - 
+            const x = () => console.log('x');
+            x();
+        */
+
+        /*
+            4. Default Parameters
+            function abc(a = 0, b = 0, ) {
+                console.log(a + b);
+            }  
+            abc(1);
+        */
+
+        /*
+            5. Exponential Operator (Power of operator) - 
+            console.log(5**2);
+        */
+
+        /*
+            6. Spread Operator (...) -
+
+            // old method for merging two arrays
+            let arr1 = [2, 1, 4, 3, 5];
+            let arr2 = [12, 10];
+            let arr3 = [20, 15];
+            let oldMethod = arr1.concat(arr2, arr3);
+            console.log(oldMethod)
+
+            // new method for merging two arrays
+            let spreadMethod = [...arr1, ...arr2, ...arr3];
+            console.log(spreadMethod)
+
+            // spread operator on function, also called rest operator
+            function abc(a, b, ...rest) {
+                console.log(a, b, rest);
+            }
+            abc(1, 3, 2, 3, 4);
+
+            // spread operator with objects
+            // Example-1
+            let rajeshAddress = {
+                city: 'Mumbai',
+                state: 'Maharashtra',
+                country: 'India'
+            }
+            let rajesh = {
+                name: 'rajesh',
+                batch: 10,
+                techStack: 'MERN',
+                address: {...rajeshAddress}
+            }
+            
+            console.log(rajesh);
+            
+            // Example-2
+            let obj1 = {
+                abc: 'abc',
+                def: 'def'
+            }
+     
+            let obj2 = {
+                abc: '123',
+                ghi: 'ghi',
+                jkl: 'jkl'
+            }
+     
+            let obj3 = {...obj1, ...obj2};
+            console.log(obj3)
+        */
+
+
+        /*
+            includes() - use with string and array
+            // Object Property assignment
+
+            let a=5, b=10
+            let obj1 = {
+                a: a,
+                b: b
+            }
+            
+            // if key and value are same then only we can write like
+            let obj2 = {a, b}
+            console.log(obj1, obj2)
+        */
+
+        /*
+            - Non premitive data types takes reference of another data when assigned.
+            let obj1 = {
+                a: 5, 
+                b: 10
+            }
+     
+            let obj2 = obj1; // it will take ref of obj1
+            obj1.a = 20;
+            console.log(obj1, obj2);
+
+            // there is another way to make a copy of non-primitive data types
+            let obj1 = {a: 5, b: 10};
+            let obj2 = {...obj1}
+            obj1.a = 20;
+            console.log(obj1, obj2);
+     
+            // for array
+            let arr1 = [1, 2];
+            let arr2 = {...arr1};
+            arr1[1] = 5;
+            console.log(arr1, arr2);
+        */
+
+        // Note - If non-primitive data has nested then again it will take ref.
+        // Deep Copy and Shalow Copy
+
+        /*
+            Shalow Copy - 
+            -> When we assign a non-primitive data type in another non-primitive data type,
+               so it will take reference, that is know as shalow copy.
+            -> Copy of original object is stored (first level property.
+            
+            There is two method to make shalow copy -
+            1. Assign directly that non-primitive data.
+
+            2. Using Object.assign() method.
+                let rajesh = {
+                    name: 'rajesh',
+                    batch: 10,
+                    techStack: 'MERN',
+                    address: {
+                        city: 'Mumbai',
+                        state: 'Maharashtra',
+                        country: 'India'
+                    }
+                }
+                let mayank = Object.assign({}, rajesh);
+                mayank.address.city = 'Pune';
+                console.log(mayank);
+        */
+
+        /*
+            Deep Copy - The copy of original object and the repetitive copies both are stored.
+            Note - using spread operator, You should know the structure to do deep copy using spread operator).
+
+            methods for Deep Copy-
+
+            1. Spread Operator (Not recommended)
+            let rajesh = {
+                name: 'rajesh',
+                batch: 10,
+                techStack: 'MERN',
+                address: {
+                    city: 'Mumbai',
+                    state: 'Maharashtra',
+                    country: 'India'
+                }
+            }
+            let mayank = {
+                ...rajesh,
+                address: {
+                    ...rajesh.address
+                }
+            }
+            mayank.address.city = 'Pune'
+    
+            2. JSON method
+            let rajesh = {
+                name: 'rajesh',
+                batch: 10,
+                techStack: 'MERN',
+                address: {
+                    city: 'Mumbai',
+                    state: 'Maharashtra',
+                    country: 'India'
+                }
+            }
+            let mayank = JSON.parse(JSON.stringify(rajesh));
+            console.log(mayank)
+         */
+
+        /*
+            Destructuring - 
+            Example - 1
+            let obj = {
+                a: 1,
+                b: 2
+            }
+    
+            let { a, b } = obj;
+            console.log(a, b);
+
+            Example - 2
+            let rajesh = {
+                name: 'rajesh',
+                batch: 10,
+                techStack: 'MERN',
+                address: {
+                    city: 'Mumbai',
+                    state: 'Maharashtra',
+                    country: 'India'
+                }
+            }
+     
+            // let { batch, techStack, address } = rajesh;
+            // let { city, state, country } = address;
+     
+            // other simple way
+            let { batch, techStack, address, address: { city }} = rajesh;
+            console.log(address, city);
+
+            // Destrucuring on Array
+            Example - 1
+            let arr = [1, 2, 3, 4];
+            let [ first, second, third ] = arr;
+            console.log(first, second, third);
+            
+            Example - 2
+            let arr = [1, 2, ['Rishabh', 'Naresh'], 3, 4];
+            let [ first, second, third, fourth, fifth ] = arr;
+            let [third0, third1] = third;
+            console.log(first, second, third0, third1, fourth, fifth);
+            
+        */
+
+        /*
+            Swapping value
+
+            let a=1;
+            let b=2;
+    
+            // simple way
+            let temp = a;
+            a = b;
+            b = temp;
+    
+            // Without using extra space
+            a = a + b;
+            b = a - b;
+            a = a - b;
+    
+            // Using object property assignment and destructuring concept
+            [a, b] = [b, a];
+            console.log(a, b);
+        */
+
+        /*
+            Object.entries() - 
+            let rajesh = {
+                name: 'rajesh',
+                batch: 10,
+                techStack: 'MERN',
+                address: {
+                    city: 'Mumbai',
+                    state: 'Maharashtra',
+                    country: 'India'
+                }
+            }
+            let keys = Object.entries(rajesh);
+            console.log(keys);
+        */
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

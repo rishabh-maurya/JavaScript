@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find & findIndex method</title>
+    <script>
+        /*
+            find - Returns the first element of the array that passes a test.
+            - Iterate through each element
+            - does not change the original array
+            - if nothing mathchs to given condition it will reutrn undefined
+
+            let arr = [3, 10, 18, 20];
+            let ans = arr.find((element) => {
+                return condition;
+            })
+        */
+
+        let ages = [3, 10, 18, 20];
+        let ans = ages.find((age) => {
+            return age >= 18;
+        })
+        console.log(ans);
+        
+        /*
+        findIndex - Returns the first element index of the array that passes a test.
+        - Iterate through each element
+        - does not change the original array
+        - if nothing mathchs to given condition it will reutrn -1
+        
+        let arr = [3, 10, 18, 20];
+        let ans = arr.find((element) => {
+            return condition;
+        })
+        */
+
+       let stuAges = [3, 10, 18, 20];
+       let result = ages.findIndex((age) => {
+           return age >= 18;
+       })
+       console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

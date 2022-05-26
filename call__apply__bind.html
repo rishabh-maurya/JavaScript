@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Apply Bind</title>
+    <script>
+        /*  
+            JavaScript Function Methods - call, apply, bind
+        */
+
+        /*
+            Arrays - 
+            Properties: length
+            Methods: push, pop, shift, unshift, map, filter, forEach etc.
+        */
+
+        /*
+            Function - 
+            Properties: code, name(otional)
+            Methods: call, apply, bind
+            let ram = {
+                firstName: 'Ram',
+                lastName: 'Charan',
+                batch: 10,
+                displayFullName: function () {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+     
+            let vaishnavi = {
+                firstName: 'Vaishnavi',
+                lastName: 'Gupta',
+                batch: 10,
+                displayFullName: function () {
+                    return this.firstName + ' ' + this.lastName;
+                }
+            }
+     
+            console.log(ram.displayFullName());
+            console.log(vaishnavi.displayFullName());
+        */
+
+        function displayFullName() {
+            return this.firstName + ' ' + this.lastName;
+        }
+
+        function greetUser(wish) {
+            return `${wish} ${this.firstName} ${this.lastName}`;
+        }
+        let ram = {
+            firstName: 'Ram',
+            lastName: 'Charan',
+            batch: 10,
+        }
+
+        let vaishnavi = {
+            firstName: 'Vaishnavi',
+            lastName: 'Gupta',
+            batch: 10,
+        }
+
+        /*
+            call 
+            - Attach object to the function and then call
+            - It will be invoke immediately
+            - Arguments for that function are passed separated by commas after the object
+            - If number of parameter in that function is x, we'll pass x+1 arguments (first arguments id for the object to attach).
+            
+            
+    
+            console.log(displayFullName.call(ram));
+            console.log(displayFullName.call(vaishnavi));
+    
+            console.log(greetUser.call(ram, 'Good Morning!'));
+            console.log(greetUser.call(vaishnavi, 'Good Morning!'));
+        */
+
+        /*
+            apply 
+            - Attach object to the function and then call
+            - It will be invoke immediately
+            - Arguments for that function are passed as an array of values separated by commas after the object
+            
+            console.log(greetUser.apply(ram, ['Good Morning',1 , 2]))
+            console.log(greetUser.apply(vaishnavi, ['Good Morning', 1, 2]))
+        */
+
+
+        /*
+            bind 
+            - Attach object to the function and then call
+            - Does not invoke immediatly, rather it will return an updated function with attached object reference
+            
+        */
+
+        let displayFullNameWithRamObjectReference = displayFullName.bind(ram);
+        console.log(displayFullNameWithRamObjectReference());
+        
+        let displayFullNameWithVaishnaviObjectReference = displayFullName.bind(vaishnavi);
+        console.log(displayFullNameWithVaishnaviObjectReference());
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

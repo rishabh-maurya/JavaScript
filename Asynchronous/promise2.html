@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise-2</title>
+    <script>
+        let studentDataReceivedFromAPI = [
+            {
+                name: 'Shweta',
+                batch: 10
+            },
+            {
+                name: 'Satyam',
+                batch: 9
+            },
+            {
+                name: 'Anju',
+                batch: 9
+            },
+            {
+                name: 'Rajesh',
+                batch: 9
+            },
+            {
+                name: 'Rishabh',
+                batch: 9
+            }];
+
+        const fetchStudentDataPromise = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(studentDataReceivedFromAPI);
+                }, 9000);
+            })
+        }
+
+        // const fetchStudentData = () => {
+        //     fetchStudentDataPromise().then((resolvedMessage) => {
+        //         console.log(resolvedMessage)
+        //     }).catch((err) => {
+        //         console.log(err)
+        //     })
+        // }
+
+        // fetchStudentData();
+
+        /*
+            Promise Chaining - 
+            1. When .then handler return another promise which needs to be handled by chaining another .then()
+            2. Return any data from first .then and that data can be caught by the second .then() handler 
+               which is chained to the first one
+
+               const fetchStudentData = () => {
+                   fetchStudentDataPromise().then((res) => {
+                       return res.filter(student => student.batch === 10) // filtering data
+                   }).then ((studentOfBatch10) => {
+                       console.log(studentOfBatch10) // Display logic
+                   }).catch((err) => {
+                       console.log(err)
+                   })
+               }
+        
+               fetchStudentData();
+        */
+
+        
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
